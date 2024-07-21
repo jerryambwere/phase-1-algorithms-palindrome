@@ -23,3 +23,19 @@ if (require.main === module) {
 }
 
 module.exports = isPalindrome;
+
+function isPalindrome(str) {
+  // Convert the string to lowercase and remove non-alphanumeric characters
+  const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  // Reverse the cleaned string
+  const reversedStr = cleanStr.split('').reverse().join('');
+  // Check if the cleaned string is equal to its reverse
+  return cleanStr === reversedStr;
+}
+
+// Test cases
+console.log(isPalindrome("madam"));  // true
+console.log(isPalindrome("racecar"));  // true
+console.log(isPalindrome("hello"));  // false
+console.log(isPalindrome("level"));  // true
+console.log(isPalindrome("Was it a car or a cat I saw?"));  // true
